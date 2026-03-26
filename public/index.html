@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Collector 2</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <p class="eyebrow">Image Collector 2</p>
+        <h1 id="page-title">Collect up to 75 images from six exact pages.</h1>
+        <p id="intro-copy" class="intro">
+          Paste one to six URLs from any sites. The app checks only those pages, uses a browser fallback
+          for Google and GBP-style links when needed, saves the first valid images it finds, and writes them
+          into a timestamped folder on your computer.
+        </p>
+
+        <form id="collector-form" class="form">
+          <fieldset class="mode-switch" aria-label="Download mode">
+            <legend>Mode</legend>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="images" checked />
+              <span>Image Mode</span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="logos" />
+              <span>Logo PNG Mode</span>
+            </label>
+          </fieldset>
+
+          <p id="mode-help" class="mode-help">
+            Image mode downloads up to 75 images across the URLs you provide.
+          </p>
+
+          <label>
+            <span>URL 1</span>
+            <input type="text" name="url1" placeholder="site.com" />
+          </label>
+          <label>
+            <span>URL 2</span>
+            <input type="text" name="url2" placeholder="site.com/example1" />
+          </label>
+          <label>
+            <span>URL 3</span>
+            <input type="text" name="url3" placeholder="site.com/example2" />
+          </label>
+          <label>
+            <span>URL 4</span>
+            <input type="text" name="url4" placeholder="site.com/example3" />
+          </label>
+          <label>
+            <span>URL 5</span>
+            <input type="text" name="url5" placeholder="site.com/example4" />
+          </label>
+          <label>
+            <span>URL 6</span>
+            <input type="text" name="url6" placeholder="site.com/example5" />
+          </label>
+          <label data-logo-only="true" hidden>
+            <span>URL 7</span>
+            <input type="text" name="url7" placeholder="clientsite7.com" disabled />
+          </label>
+          <label data-logo-only="true" hidden>
+            <span>URL 8</span>
+            <input type="text" name="url8" placeholder="clientsite8.com" disabled />
+          </label>
+
+          <button id="submit-button" type="submit">Download Images</button>
+        </form>
+
+        <section id="status" class="status" aria-live="polite"></section>
+        <section id="result" class="result" aria-live="polite"></section>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
