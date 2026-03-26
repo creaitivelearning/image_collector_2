@@ -33,6 +33,8 @@ Each launcher installs dependencies if needed, starts the local server, and open
 
 Important: `.command` is a macOS launcher. On Windows, that file will open an "which app do you want to use?" prompt because it is not a Windows executable script. On Windows, use the `.bat` launcher instead.
 
+If the Windows launcher closes too quickly, download the latest version of the repo and use `Launch Image Collector 2 for Windows.bat`. The updated launcher keeps setup errors visible and tells you whether Node.js is missing or the local server failed to start.
+
 ## Where Files Are Saved
 
 - Image mode saves images to `<Desktop>/<domain>/<timestamp>/`
