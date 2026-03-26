@@ -26,10 +26,12 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 ## Double-Click Launch
 
-- macOS: double-click `Launch Image Collector 2.command`
-- Windows: double-click `Launch Image Collector 2.bat`
+- macOS: double-click `Launch Image Collector 2 for Mac.command` or `Launch Image Collector 2.command`
+- Windows: double-click `Launch Image Collector 2 for Windows.bat` or `Launch Image Collector 2.bat`
 
 Each launcher installs dependencies if needed, starts the local server, and opens the app in your browser.
+
+Important: `.command` is a macOS launcher. On Windows, that file will open an "which app do you want to use?" prompt because it is not a Windows executable script. On Windows, use the `.bat` launcher instead.
 
 ## Where Files Are Saved
 
