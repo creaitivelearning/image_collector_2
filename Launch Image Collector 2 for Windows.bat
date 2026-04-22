@@ -2,6 +2,8 @@
 setlocal EnableExtensions
 
 title Image Collector 2 Launcher
+set "APP_URL=http://localhost:3001"
+set "APP_PORT=3001"
 
 cd /d "%~dp0"
 if errorlevel 1 goto :folder_error
@@ -19,14 +21,14 @@ if not exist node_modules (
 )
 
 echo Starting Image Collector 2...
-start "Image Collector 2 Server" cmd /k "cd /d ""%~dp0"" && echo Image Collector 2 server window. Leave this open while using the app. && node src\server.js"
+start "Image Collector 2 Server" cmd /k "cd /d ""%~dp0"" && echo Image Collector 2 server window. Leave this open while using the app. && set PORT=%APP_PORT% && node src\server.js"
 
 echo Waiting for the local server...
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
   "$deadline=(Get-Date).AddSeconds(20);" ^
   "while((Get-Date) -lt $deadline) {" ^
   "  try {" ^
-  "    $response = Invoke-WebRequest -UseBasicParsing http://localhost:3000/health -TimeoutSec 2;" ^
+  "    $response = Invoke-WebRequest -UseBasicParsing %APP_URL%/health -TimeoutSec 2;" ^
   "    if ($response.StatusCode -eq 200) { exit 0 }" ^
   "  } catch {}" ^
   "  Start-Sleep -Milliseconds 500" ^
@@ -34,9 +36,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command ^
   "exit 1"
 if errorlevel 1 goto :server_error
 
-start "" "http://localhost:3000"
+start "" "%APP_URL%"
 echo Image Collector 2 is opening in your browser.
-echo If the browser does not open, go to http://localhost:3000 manually.
+echo If the browser does not open, go to %APP_URL% manually.
 timeout /t 3 /nobreak >nul
 exit /b 0
 

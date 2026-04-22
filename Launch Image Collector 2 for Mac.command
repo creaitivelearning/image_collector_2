@@ -3,8 +3,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="${0:A:h}"
-APP_URL="http://localhost:3000"
-TERMINAL_COMMAND="cd ${(q)SCRIPT_DIR} && if [[ ! -d node_modules ]]; then npm install; fi && node src/server.js"
+APP_URL="http://localhost:3001"
+TERMINAL_COMMAND="cd ${(q)SCRIPT_DIR} && if [[ ! -d node_modules ]]; then npm install; fi && PORT=3001 node src/server.js"
 
 cd "$SCRIPT_DIR"
 
