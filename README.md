@@ -22,7 +22,7 @@ npm install
 npm start
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3001](http://localhost:3001).
 
 ## Double-Click Launch
 
